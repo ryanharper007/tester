@@ -38,9 +38,9 @@
 class packages (
   $package_present = 'present',
   $remote_packages = ['git'],
-  $local_packages  = ['jdk-7u25-linux-x64'],
-  $group_install   = [
-    'Desktop']) {
+  $local_packages  = ['jdk-1.7.0_25-fcs'],
+  $group_install   = ['Desktop']
+) {
   # Validate parameters
 
   if ($package_present == undef) {
