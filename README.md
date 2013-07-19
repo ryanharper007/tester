@@ -4,14 +4,14 @@ tester
 ### This is a vagrant environment for test purposes only. 
 
 The following assumptions are made with regards to the deployment
-1. you have virtual box installed and configured. 
-2. you will be using vagrant to deploy the vms. 
-3. the domain is example.com
-4. puppet client will be run, and not a puppet master.
-5. you will be using virtual box as the default provider.  This can quite easily be expanded to other providers, but is not in the scope of this project. 
-6. all hiera data values are found in the hiera data folder under the relative folder of puppet/hiera.  
-7. Vagrant version used is 1.2.4
-8. Centos 6.4 x86_64  box is used. 
+* you have virtual box installed and configured. 
+* you will be using vagrant to deploy the vms. 
+* the domain is example.com
+* puppet client will be run, and not a puppet master.
+* you will be using virtual box as the default provider.  This can quite easily be expanded to other providers, but is not in the scope of this project. 
+* all hiera data values are found in the hiera data folder under the relative folder of puppet/hiera.  
+* Vagrant version used is 1.2.4
+* Centos 6.4 x86_64  box is used. 
 
 To get the environment up and running on your machine please run the following commands. 
 
