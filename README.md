@@ -41,6 +41,6 @@ $ : cd java-build-test
 </pre>
 7. Check that you can build the java project. 
 <pre>
-$ : mvn clean install. 
+$ : mvn clean install
 </pre>
 That should be it. Happy testing!!
