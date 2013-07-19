@@ -1,0 +1,8 @@
+:hierarchy:
+  - common
+:puppet:
+  :datasource: data
+:backends:
+  - yaml
+:yaml:
+  :datadir: '/etc/puppet/hiera'
