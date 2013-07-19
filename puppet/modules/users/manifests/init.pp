@@ -41,7 +41,7 @@ class users {
     ensure => present,
     managehome => true,
     uid => 1000,
-    password => '$6$ZFlkyIcv$y0gM1hnH.SC0TVJX2AQPQCTA.7Mo8.MWvwS0ZRd9Kjq6xspTyCYJ4bAADEIwYbMeoEFMbl3NjjwUEK.caXxbD0',
+    password => '$1$SP2yLtIc$KHMQfxZeDn5W7.mSPP42k1',
     comment  => 'Visa test user',
   }
 }

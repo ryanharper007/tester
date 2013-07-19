@@ -42,9 +42,15 @@ define packages::install_local ($packages = undef) {
     $mod_name = $caller_module_name
   }
 
+  file { "/tmp/${name}.rpm":
+    ensure => present,
+    source => "puppet:///modules/packages/${name}.rpm",
+  } ->
+
   package { $name:
     ensure   => present,
     provider => rpm,
-    source   => "https://dl.dropboxusercontent.com/u/22810565/${name}.rpm",
+    unless   => "rpm -qa | grep ${name}",
+    source   => "/tmp/${name}.rpm",
   }
 }
