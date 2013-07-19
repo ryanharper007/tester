@@ -35,13 +35,12 @@
 #
 # Copyright 2013 Your name here, unless otherwise noted.
 #
-class users {
-
-  user { 'tester':
-    ensure => present,
-    managehome => true,
-    uid => 1000,
-    password => '$1$SP2yLtIc$KHMQfxZeDn5W7.mSPP42k1',
-    comment  => 'Visa test user',
+class users ( $user_name = '', $present_value = '', $manage_home_value = '', $uid_value = '', $user_pass = '', $user_comment = '' ) {
+  user { $user_name:
+    ensure => $present_value,
+    managehome => $manage_home_value,
+    uid => $uid_value,
+    password => $user_pass,
+    comment  => $user_comment,
   }
 }

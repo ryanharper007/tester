@@ -1,44 +1,42 @@
 # == Class: packages
 #
-# Full description of class packages here.
+# installs a group of packages based on certain parameters. 
 #
 # === Parameters
 #
 # Document parameters here.
 #
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
+# [*package_present*]
+#   whether the package should be installed or not. 
+# [*remote_packages*]
+#   remote packages from remote repos i.e. yum.puppetlabs.com
+# [*local_packages*]
+#  installation of local rpms. 
+# [*group_install*]
+#   group install a particular group of packages, uses the yum groupinstall option. 
 #
 # === Variables
-#
-# Here you should define a list of variables that this module would require.
-#
-# [*sample_variable*]
-#   Explanation of how this variable affects the funtion of this class and if it
-#   has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#   External Node Classifier as a comma separated list of hostnames." (Note,
-#   global variables should not be used in preference to class parameters  as of
-#   Puppet 2.6.)
 #
 # === Examples
 #
 #  class { packages:
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ]
+#    $package_present => present,
+#    $remote_packages => ['git'],
+#    $local_packages  => ['jdk'],
 #  }
 #
 # === Authors
 #
-# Author Name <author@domain.com>
+# Ryan Harper <ryanharper007@mydomain.com>
 #
 # === Copyright
 #
-# Copyright 2013 Your name here, unless otherwise noted.
+# Copyright 2013 Ryan Harper, unless otherwise noted.
 #
 class packages (
   $package_present = 'present',
   $remote_packages = ['git'],
-  $local_packages  = ['jdk-1.7.0_25-fcs'],
+  $local_packages  = ['jdk-1.7.0_25-fcs.x86_64'],
   $group_install   = ['Desktop']
 ) {
   # Validate parameters
@@ -51,10 +49,9 @@ class packages (
     fail('please define the packages you want installed')
   }
 
+  # This will go off and do the various package installs. 
   packages::install { $remote_packages: }
-
   packages::install_local { $local_packages: }
-
   packages::install_group { $group_install: }
 }
 

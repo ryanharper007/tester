@@ -1,1 +1,19 @@
-test: test
+# These are the user parameters that need to be defined. 
+users::user_name: tester
+users::present_value: present
+users::manage_home_value: true
+users::uid_value: 1004
+users::user_pass: '$1$SP2yLtIc$KHMQfxZeDn5W7.mSPP42k1'
+users::user_comment: 'Visa test user'
+
+# Parameters that are required for the packages module. 
+packages::package_present: present
+packages::remote_packages:
+  - git
+packages::local_packages:
+  - jdk-1.7.0_25-fcs.x86_64
+packages::group_install:
+  - Desktop
+
+# Parameters that are required for the platform module. 
+platform::default_run_level: 5

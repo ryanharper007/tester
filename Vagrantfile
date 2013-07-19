@@ -9,7 +9,8 @@ Vagrant::configure("2") do |config|
     config.vm.define node[:hostname] do |node_config|
       node_config.vm.box = node[:box]
       node_config.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: false
-      node_config.vm.box_url = node[:box_url]      
+      node_config.vm.box_url = node[:box_url]
+      node_config.vm.hostname = node[:hostname] + "." + domain
     end
   end
 
@@ -20,9 +21,10 @@ Vagrant::configure("2") do |config|
     # vb.customize ["modifyvm", :id, "--memory", node[:ram].to_s, "--name", node[:hostname]]
   end
 
+
   # place in the hiera config
-  config.vm.provision :shell, :inline => "ln -s /vagrant/puppet/hiera.yaml /etc/puppet/hiera.yaml"
-  config.vm.provision :shell, :inline => "ln -s /vagrant/puppet/hiera /etc/puppet/hiera"
+  config.vm.provision :shell, :inline => "[[ -L '/etc/puppet/hiera.yaml' ]] && echo 'hiera config in place' || ln -s /vagrant/puppet/hiera.yaml /etc/puppet/hiera.yaml"
+  config.vm.provision :shell, :inline => "[[ -L '/etc/puppet/hiera' ]] && echo 'hiera data dir in place' || ln -s /vagrant/puppet/hiera /etc/puppet/hiera"
 
   # Do the puppet run on the server. 
   config.vm.provision :puppet do |puppet|
@@ -31,7 +33,7 @@ Vagrant::configure("2") do |config|
     puppet.module_path = 'puppet/modules'
   end
  
-  # Reboot the host so it comes back as runlevel 5
-  config.vm.provision :shell, :inline => "reboot"
+  # Stick the VM into runlevel 5
+  config.vm.provision :shell, :inline => "init 5"
 
 end

@@ -1,39 +1,23 @@
 # == Class: packages::install
 #
-# Full description of class packages here.
+# This is a custom define to install a package/array of packages. 
 #
 # === Parameters
 #
 # Document parameters here.
 #
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
+# [*packages*]
+#   the array of packages that you would like to install. 
 #
 # === Variables
-#
-# Here you should define a list of variables that this module would require.
-#
-# [*sample_variable*]
-#   Explanation of how this variable affects the funtion of this class and if it
-#   has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#   External Node Classifier as a comma separated list of hostnames." (Note,
-#   global variables should not be used in preference to class parameters  as of
-#   Puppet 2.6.)
-#
 # === Examples
-#
-#  class { packages:
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ]
-#  }
-#
 # === Authors
 #
-# Author Name <author@domain.com>
+# Ryan Harper <ryanharper007@mydomain.com>
 #
 # === Copyright
 #
-# Copyright 2013 Your name here, unless otherwise noted.
+# Copyright 2013 Ryan Harper, unless otherwise noted.
 #
 define packages::install ($packages = undef) {
   if ($caller_module_name == undef) {

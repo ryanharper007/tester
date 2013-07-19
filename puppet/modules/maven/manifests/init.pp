@@ -34,7 +34,7 @@
 
 class maven() {
   # Install Maven
-$central = {
+  $central = {
     id => "myrepo",
     username => "",
     password => "",
@@ -42,7 +42,7 @@ $central = {
     mirrorof => "external:*",      # if you want to use the repo as a mirror, see maven::settings below
   }
 
-$proxy = {
+  $proxy = {
     active => false, #Defaults to true
     protocol => 'http', #Defaults to 'http'
     host => 'http://proxy.acme.com',
@@ -56,20 +56,13 @@ $proxy = {
     # you can get Maven tarball from a Maven repository instead than from Apache servers, optionally with a user/password
     repo => {
       url => "http://repo.maven.apache.org/maven2",
-      #username => "",
-      #password => "",
     },
-#    user                 => "tester",  # if you want to run it as a different user (defaults to root), will create it if not defined
-#    #maven_opts           => "",      # anything to add to MAVEN_OPTS in ~/.mavenrc
-#    #maven_path_additions => "",      # anything to add to the PATH in ~/.mavenrc
   } ->
-
   # Create a settings.xml with the repo credentials
   maven::settings { 'maven-user-settings' :
     mirrors => [$central], # mirrors entry in settings.xml, uses id, url, mirrorof from the hash passed
     servers => [$central], # servers entry in settings.xml, uses id, username, password from the hash passed
     proxies => [$proxy], # proxies entry in settings.xml, active, protocol, host, username, password, nonProxyHosts
- #   user    => 'tester',
   }
 
 }
