@@ -16,26 +16,31 @@ The following assumptions are made with regards to the deployment
 To get the environment up and running on your machine please run the following commands. 
 
 1. Clone the repository to a folder somewhere on your filesystem. 
-$ git clone https://github.com/ryanharper007/tester.git
-
+<pre>
+$ : git clone https://github.com/ryanharper007/tester.git
+</pre>
 2. Change directory to the newley created clone. 
+<pre>
 $ cd tester
-
+</pre>
 3. Start up the vagrant environment
-$ vagrant up  
-
+<pre>
+$ : vagrant up  
+</pre>
 4. The vm will go into runlevel 5 once the install and config is completed. you can then access this box either through the console or through ssh
-$ vagrant ssh
-
+<pre>
+$ : vagrant ssh
+</pre>
 5. Maven settings are deployed through puppet.  To test maven is working please carry out the following somewhere on your filesystem. 
- 
-$ git clone https://github.com/sit/java-build-test.git
-
+<pre> 
+$ : git clone https://github.com/sit/java-build-test.git
+</pre>
 6. Change directory to this clone
-
-$ cd java-build-test
-
+<pre>
+$ : cd java-build-test
+</pre>
 7. Check that you can build the java project. 
-$ mvn clean install. 
-
+<pre>
+$ : mvn clean install. 
+</pre>
 That should be it. Happy testing!!

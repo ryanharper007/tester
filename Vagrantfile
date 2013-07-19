@@ -1,3 +1,5 @@
+# Vagrant file
+
 domain   = 'example.com'
 
 nodes = [
