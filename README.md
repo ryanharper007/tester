@@ -58,9 +58,11 @@ The second part of the test includes the roman conversion utility in java. This 
 <pre>
  : cd tester/java/roman-numerals-1.3
 </pre>
-4. mvn clean install, refer to the logs where the rpm is installed. The usual place for this is.  
+4. Build the java project, this will generate all the relevant artefacts.  
 <pre>
- : /home/tester/tester/java/roman-numerals-1.3/target/rpm/roman-numerals/RPMS/noarch/roman-numerals-1.3-1.noarch.rpm
+ : mvn clean install
+ refer to the logs where the rpm is created. The usual place for this is. 
+ :/home/tester/tester/java/roman-numerals-1.3/target/rpm/roman-numerals/RPMS/noarch/roman-numerals-1.3-1.noarch.rpm
 </pre>
 5. as root you can reinstall the rpm if you wish. 
 <pre>
