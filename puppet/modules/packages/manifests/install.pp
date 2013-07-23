@@ -1,13 +1,13 @@
 # == Class: packages::install
 #
-# This is a custom define to install a package/array of packages. 
+# This is a custom define to install a package/array of packages.
 #
 # === Parameters
 #
 # Document parameters here.
 #
 # [*packages*]
-#   the array of packages that you would like to install. 
+#   the array of packages that you would like to install.
 #
 # === Variables
 # === Examples

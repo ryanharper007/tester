@@ -1,3 +1,5 @@
+# Declaring a default site definition for nodes.  Makes it easier for the purposes of this test
+
 node default {
   # Default includes for tester machine
   include maven, users, packages, platform

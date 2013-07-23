@@ -1,19 +1,19 @@
 # == Class: packages
 #
-# installs a group of packages based on certain parameters. 
+# installs a group of packages based on certain parameters.
 #
 # === Parameters
 #
 # Document parameters here.
 #
 # [*package_present*]
-#   whether the package should be installed or not. 
+#   whether the package should be installed or not.
 # [*remote_packages*]
 #   remote packages from remote repos i.e. yum.puppetlabs.com
 # [*local_packages*]
-#  installation of local rpms. 
+#  installation of local rpms.
 # [*group_install*]
-#   group install a particular group of packages, uses the yum groupinstall option. 
+#   group install a particular group of packages, uses the yum groupinstall option.
 #
 # === Variables
 #
@@ -49,7 +49,7 @@ class packages (
     fail('please define the packages you want installed')
   }
 
-  # This will go off and do the various package installs. 
+  # This will go off and do the various package installs.
   packages::install { $remote_packages: }
   packages::install_local { $local_packages: }
   packages::install_group { $group_install: }

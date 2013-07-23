@@ -1,13 +1,13 @@
 # == Class: packages::install_group
 #
-# Makes use of the groupinstall option in yum. 
+# Makes use of the groupinstall option in yum.
 #
 # === Parameters
 #
 # Document parameters here.
 #
 # [*packages*]
-#  the group name of the packages to be installed. 
+#  the group name of the packages to be installed.
 #
 # === Variables
 # === Examples

@@ -1,4 +1,4 @@
-# These are the user parameters that need to be defined. 
+# These are the parameters relevant to the user module that need to be defined. 
 users::user_name: tester
 users::present_value: present
 users::manage_home_value: true

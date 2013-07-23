@@ -1,13 +1,13 @@
 # == Class: packages::install_local
 #
-# installs an rpm from a local source. 
+# installs an rpm from a local source.
 #
 # === Parameters
 #
 # Document parameters here.
 #
 # [*packages*]
-#  the name of the packages you would like to install from a local source.  
+#  the name of the packages you would like to install from a local source.
 #
 # === Variables
 # === Examples

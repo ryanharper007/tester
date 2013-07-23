@@ -1,3 +1,4 @@
+# Basic hiera config file to get us started. 
 :hierarchy:
   - common
 :puppet:
