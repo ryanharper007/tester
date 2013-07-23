@@ -1,7 +1,7 @@
 tester
 ======
 
-### This is a vagrant environment for test purposes only. 
+### This is a vagrant environment for test purposes only.
 
 The following assumptions are made with regards to the deployment
 * you have virtual box installed and configured. 
@@ -15,24 +15,24 @@ The following assumptions are made with regards to the deployment
 
 To get the environment up and running on your machine please run the following commands. 
 
-1. Clone the repository to a folder somewhere on your filesystem. 
+1. Clone the repository to a folder somewhere on your filesystem.
 <pre>
  git clone https://github.com/ryanharper007/tester.git
 </pre>
-2. Change directory to the newley created clone. 
+2. Change directory to the newley created clone.
 <pre>
  cd tester
 </pre>
 3. Start up the vagrant environment
 <pre>
- vagrant up  
+ vagrant up
 </pre>
 4. The vm will go into runlevel 5 once the install and config is completed. you can then access this box either through the console or through ssh
 <pre>
  vagrant ssh
 </pre>
-5. Maven settings are deployed through puppet.  To test maven is working please carry out the following somewhere on your filesystem. 
-<pre> 
+5. Maven settings are deployed through puppet.  To test maven is working please carry out the following somewhere on your filesystem.
+<pre>
  sudo su - tester
  git clone https://github.com/sit/java-build-test.git
 </pre>
@@ -40,7 +40,7 @@ To get the environment up and running on your machine please run the following c
 <pre>
  cd java-build-test
 </pre>
-7. Check that you can build the java project. 
+7. Check that you can build the java project.
 <pre>
  mvn clean install
 </pre>
@@ -59,13 +59,13 @@ The second part of the test includes the roman conversion utility in java. This 
 <pre>
  cd tester/java/roman-numerals-1.3
 </pre>
-4. Build the java project, this will generate all the relevant artefacts.  
+4. Build the java project, this will generate all the relevant artefacts.
 <pre>
  mvn clean install
  <b>refer to the logs where the rpm is created. The usual place for this is.</b>
  /home/tester/tester/java/roman-numerals-1.3/target/rpm/roman-numerals/RPMS/noarch/roman-numerals-1.3-1.noarch.rpm
 </pre>
-5. as root you can reinstall the rpm if you wish. 
+5. as root you can reinstall the rpm if you wish.
 <pre>
  su - root (password is vagrant)
  rpm -ivh /home/tester/tester/java/roman-numerals-1.3/target/rpm/roman-numerals/RPMS/noarch/roman-numerals-1.3-1.noarch.rpm --force
