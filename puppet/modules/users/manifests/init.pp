@@ -29,11 +29,11 @@
 #
 # === Authors
 #
-# Author Name <author@domain.com>
+# Ryan Harper <ryanharper@domain.com>
 #
 # === Copyright
 #
-# Copyright 2013 Your name here, unless otherwise noted.
+# Copyright 2013 Ryan Harper, unless otherwise noted.
 #
 class users ( $user_name = '', $present_value = '', $manage_home_value = '', $uid_value = '', $user_pass = '', $user_comment = '' ) {
   user { $user_name:
