@@ -17,61 +17,63 @@ To get the environment up and running on your machine please run the following c
 
 1. Clone the repository to a folder somewhere on your filesystem. 
 <pre>
- : git clone https://github.com/ryanharper007/tester.git
+ git clone https://github.com/ryanharper007/tester.git
 </pre>
 2. Change directory to the newley created clone. 
 <pre>
- : cd tester
+ cd tester
 </pre>
 3. Start up the vagrant environment
 <pre>
-  : vagrant up  
+ vagrant up  
 </pre>
 4. The vm will go into runlevel 5 once the install and config is completed. you can then access this box either through the console or through ssh
 <pre>
-  : vagrant ssh
+ vagrant ssh
 </pre>
 5. Maven settings are deployed through puppet.  To test maven is working please carry out the following somewhere on your filesystem. 
 <pre> 
-  : git clone https://github.com/sit/java-build-test.git
+ sudo su - tester
+ git clone https://github.com/sit/java-build-test.git
 </pre>
 6. Change directory to this clone
 <pre>
-  : cd java-build-test
+ cd java-build-test
 </pre>
 7. Check that you can build the java project. 
 <pre>
-  : mvn clean install
+ mvn clean install
 </pre>
 
 The second part of the test includes the roman conversion utility in java. This gets deployed as an rpm to the machine, and has a shell wrapper, this is deployed to the machine but the project itself can be built by following the instructions below.
 
 1. go in as the tester user, with the relevant password.
 <pre>
-  : sudo su - tester
+ sudo su - tester
 </pre>
 2. clone the java project
 <pre>
- : git clone https://github.com/ryanharper007/tester.git
+ git clone https://github.com/ryanharper007/tester.git
 </pre>
 3. change directory to the java directory in the project root
 <pre>
- : cd tester/java/roman-numerals-1.3
+ cd tester/java/roman-numerals-1.3
 </pre>
 4. Build the java project, this will generate all the relevant artefacts.  
 <pre>
- : mvn clean install
- refer to the logs where the rpm is created. The usual place for this is. 
- :/home/tester/tester/java/roman-numerals-1.3/target/rpm/roman-numerals/RPMS/noarch/roman-numerals-1.3-1.noarch.rpm
+ mvn clean install
+ <b>refer to the logs where the rpm is created. The usual place for this is.</b>
+ /home/tester/tester/java/roman-numerals-1.3/target/rpm/roman-numerals/RPMS/noarch/roman-numerals-1.3-1.noarch.rpm
 </pre>
 5. as root you can reinstall the rpm if you wish. 
 <pre>
- : rpm -ivh /home/tester/tester/java/roman-numerals-1.3/target/rpm/roman-numerals/RPMS/noarch/roman-numerals-1.3-1.noarch.rpm --force
+ su - root (password is vagrant)
+ rpm -ivh /home/tester/tester/java/roman-numerals-1.3/target/rpm/roman-numerals/RPMS/noarch/roman-numerals-1.3-1.noarch.rpm --force
 </pre>
-6. To test roman conversion application please issue the following command.
+6. To test roman conversion application please issue the following commands
 <pre>
-: e.g. roman-conv 555
-: should return 555 in Roman numerals: DLV
+ e.g. roman-conv 555
+ should return 555 in Roman numerals: DLV
 </pre>
 
 That should be it. Happy testing!!
